@@ -1,7 +1,7 @@
 <?php 
 
 if(isset($_POST['submit'])){
-    $to = "info@epicblog.net"; // Здесь нужно написать e-mail, куда будут приходить письма
+    $to = "leshka-povareshka@yandex.ru"; // Здесь нужно написать e-mail, куда будут приходить письма
     $from = "no-reply@epicblog.net"; // Здесь нужно написать e-mail, от кого будут приходить письма, например no-reply@epicblog.net
     $first_name = $_POST['first_name'];
     $subject = "Форма отправки сообщений с сайта";
