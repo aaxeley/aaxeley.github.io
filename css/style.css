@@ -127,14 +127,14 @@ h3.heading {
     margin: 0 auto 0rem;
 }
 
-/*======= PORTFOLIO ========*/ 
+/*======= teams ========*/ 
 
-.portfolio {
+.teams {
     overflow: hidden;
     background-color: black;
 }
 
-.portfolio img {
+.teams img {
     max-width: 100%;
     transition-duration: .5s;
 }
@@ -143,14 +143,14 @@ h3.heading {
     padding: 0;
 }
 
-.portfolio:hover img{
+.teams:hover img{
     filter: blur(0.5px);
     opacity: .8;
     transform: scale(1.1);
     cursor: pointer;
 }
 
-.portfolio:hover .teamname{
+.teams:hover .teamname{
     opacity: .8;
 }
 
@@ -281,7 +281,7 @@ hr.socket {
         font-size: 1rem;
     }
 
-    .portfolio h1 {
+    .teams h1 {
         font-size: 1.2rem;
         letter-spacing: .1rem;
     }
