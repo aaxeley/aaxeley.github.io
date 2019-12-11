@@ -26,23 +26,25 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html#home">Главная</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.html#portfolio">Команды</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#index.htmlteam">Гонщики</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#team">Гонщики</a></li>
                 </ul>
             </div>
         </nav>
-        <div class="carousel-item active" style="background-image: url('img/teamslogos/redbull.jpg')">
+        <div class="carousel-item active" style="background-image: url('img/renault.jpg')">
+            <div id="forma"class="carousel-caption text-center" style="top:0%"> 
+                <div id="form" class="offset">
+                    <form action="send.php" method="post">
+                        <input placeholder="Ваше имя" type="text" name="fio" required>
+                        <input placeholder="Ваш e-mail" type="email" name="email">
+                        <textarea name="message" cols="50" rows="10" placeholder="Напишите ваше сообщение сюда..."></textarea>
+                        <div class="g-recaptcha" data-sitekey="ключ сайта"></div>
+                        <input type="submit" value="Отправить">
+                        </form> 
+                </div>
+            </div>
         </div>
     </div>
     
-    <div id="form" class="offset">
-        <form action="send.php" method="post">
-
-            Ваше имя <input type="text" name="first_name"><br>
-            Email: <input type="text" name="email" required placeholder="Обязательное поле"><br>
-            Сообщение:<br><textarea rows="5" name="message" cols="30"></textarea><br>
-            <input type="submit" name="submit" value="Submit">
-            </form>
-    </div>
 
       <!--Start Contact Section-->
       <div class="offset">

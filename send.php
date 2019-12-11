@@ -1,27 +1,41 @@
-<?php 
-
-if(isset($_POST['submit'])){
-    $to = "leshka-povareshka@yandex.ru"; // Здесь нужно написать e-mail, куда будут приходить письма
-    $from = "no-reply@epicblog.net"; // Здесь нужно написать e-mail, от кого будут приходить письма, например no-reply@epicblog.net
-    $first_name = $_POST['first_name'];
-    $subject = "Форма отправки сообщений с сайта";
-    $subject2 = "Copy of your form submission";
-    $message = "ФИО посетителя: ". $first_name . " | Адрес электронной почты: "  . $_POST['email'] . " | Комментарий: " . $_POST['message'];
-    $message2 = "Here is a copy of your message " . $first_name . "\n\n" . $_POST['message'];
-
-    $headers = "From:" . $from;
-    $headers2 = "From:" . $to;
-	
-    mail($to,$subject,$message,$headers);
-   // mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender - Отключено!
-    echo "Сообщение отправлено. Спасибо Вам " . $first_name . ", мы скоро свяжемся с Вами.";
-	echo "<br /><br /><a href='https://epicblog.net'>Вернуться на сайт.</a>";
-
+<?php
+$recaptcha = $_POST['g-recaptcha-response'];
+ 
+if(!empty($recaptcha)) {
+    $recaptcha = $_REQUEST['g-recaptcha-response'];
+    $secret = 'секретный ключ';
+    $url = "https://www.google.com/recaptcha/api/siteverify?secret=".$secret ."&response=".$recaptcha."&remoteip=".$_SERVER['REMOTE_ADDR'];
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_TIMEOUT, 10);
+    curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; rv:8.0) Gecko/20100101 Firefox/8.0");
+    $curlData = curl_exec($curl);
+    curl_close($curl); 
+    $curlData = json_decode($curlData, true);
+    if($curlData['success']) {
+        $fio = $_POST['fio'];
+        $email = $_POST['email'];
+        $message = $_POST['message'];
+        $fio = htmlspecialchars($fio);
+        $email = htmlspecialchars($email);
+        $message = htmlspecialchars($message);
+        $fio = urldecode($fio);
+        $email = urldecode($email);
+        $message = urldecode($message);
+        $fio = trim($fio);
+        $email = trim($email);
+        $message  = trim($message);
+        if (mail("alexvolchkou@gmail.com", "Заявка с сайта", "ФИО:".$fio.". E-mail: ".$email." Сообщение: ".$message ,"From: info@satename.ru \r\n")){  
+        echo "Сообщение успешно отправлено"; 
+        } else { 
+        echo "При отправке сообщения возникли ошибки";
+        }
+    } else {
+        echo "Подтвердите, что вы не робот и попробуйте еще раз";
+    }
 }
-
+else {
+    echo "поставьте галочку в поле 'Я не робот' для отправки сообщения";
+}
 ?>
-<!--Переадресация на главную страницу сайта, через 3 секунды-->
-<script language="JavaScript" type="text/javascript">
-function changeurl(){eval(self.location="https://epicblog.net/index.php");}
-window.setTimeout("changeurl();",3000);
-</script>
