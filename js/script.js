@@ -11,9 +11,7 @@ span.onclick = function() {
 };
 
 window.onclick = function(event) {
-    if (event.target == ham) {
-        ham.style.display = "none";
-    }
+    ham.style.display = "none";
 };
 
 //BOTTAS

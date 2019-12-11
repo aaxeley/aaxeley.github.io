@@ -1,41 +1,77 @@
-<?php
-$recaptcha = $_POST['g-recaptcha-response'];
- 
-if(!empty($recaptcha)) {
-    $recaptcha = $_REQUEST['g-recaptcha-response'];
-    $secret = 'секретный ключ';
-    $url = "https://www.google.com/recaptcha/api/siteverify?secret=".$secret ."&response=".$recaptcha."&remoteip=".$_SERVER['REMOTE_ADDR'];
-    $curl = curl_init();
-    curl_setopt($curl, CURLOPT_URL, $url);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($curl, CURLOPT_TIMEOUT, 10);
-    curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; rv:8.0) Gecko/20100101 Firefox/8.0");
-    $curlData = curl_exec($curl);
-    curl_close($curl); 
-    $curlData = json_decode($curlData, true);
-    if($curlData['success']) {
-        $fio = $_POST['fio'];
-        $email = $_POST['email'];
-        $message = $_POST['message'];
-        $fio = htmlspecialchars($fio);
-        $email = htmlspecialchars($email);
-        $message = htmlspecialchars($message);
-        $fio = urldecode($fio);
-        $email = urldecode($email);
-        $message = urldecode($message);
-        $fio = trim($fio);
-        $email = trim($email);
-        $message  = trim($message);
-        if (mail("alexvolchkou@gmail.com", "Заявка с сайта", "ФИО:".$fio.". E-mail: ".$email." Сообщение: ".$message ,"From: info@satename.ru \r\n")){  
-        echo "Сообщение успешно отправлено"; 
-        } else { 
-        echo "При отправке сообщения возникли ошибки";
-        }
-    } else {
-        echo "Подтвердите, что вы не робот и попробуйте еще раз";
-    }
-}
-else {
-    echo "поставьте галочку в поле 'Я не робот' для отправки сообщения";
-}
-?>
+<!DOCTYPE html>
+<html lang="rus">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>formula1.by</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fixed.css">
+</head>
+
+<body>
+
+    <div id="background">
+        <!--Navigation-->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <a class="navbar-brand" href="index.html"><img src="img/websitelogo.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#portfolio">Команды</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#team">Гонщики</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="carousel-item active" style="background-image: url('img/renault.jpg')">
+            <div id="forma"class="carousel-caption text-center" style="top:0%"> 
+                <div id="form" class="offset">
+                    <form action="send.php" method="post">
+                        <input placeholder="Ваше имя" type="text" name="fio" required>
+                        <input placeholder="Ваш e-mail" type="email" name="email">
+                        <textarea name="message" cols="50" rows="10" placeholder="Напишите ваше сообщение сюда..."></textarea>
+                        <div class="g-recaptcha" data-sitekey="ключ сайта"></div>
+                        <input type="submit" value="Отправить">
+                        </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+      <!--Start Contact Section-->
+      <div class="offset">
+            <footer>
+                <div class="row justify-content-center">
+                    <div class="col-md-5 text-center">
+                        <img src="img/websitelogo-footer.png" alt="">
+                        <p>Формула-1 для Всех!</p>
+                        <h6>Контакты:</h6>
+                        <p>+375(29) 391-80-08 <br>alexvolchkou@gmail.com</p>
+                        <a href="https://www.facebook.com/aaxeley" target="_blank"><i class="fab fa-facebook-square"
+                                aria-hidden="true"></i></a>
+                        <a href="https://vk.com/aaxeley" target="_blank"><i class="fab fa-vk"></i></a>
+                        <a href="https://www.instagram.com/aaxeley/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <hr class="socket">
+                </div>
+            </footer>
+        </div>
+        <!--End Contact Section-->
+  
+  
+  <!--Script source files-->
+    <script src="js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.6.1/js/all.js"></script>
+</body>
+
+</html>
