@@ -26,7 +26,7 @@ if(!empty($recaptcha)) {
         $fio = trim($fio);
         $email = trim($email);
         $message  = trim($message);
-        if (mail("alexvolchkou@gmail.com", "Заявка с сайта", "ФИО:".$fio.". E-mail: ".$email." Сообщение: ".$message ,"From: info@satename.ru \r\n")){  
+        if (mail("alexvolchkou@gmail.com", "Заявка с сайта", "ФИО:".$fio.". E-mail: ".$email." Сообщение: ".$message ,"From: info@aaxeley.github.io \r\n")){  
         echo "Сообщение успешно отправлено"; 
         } else { 
         echo "При отправке сообщения возникли ошибки";

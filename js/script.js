@@ -10,7 +10,7 @@ span.onclick = function() {
     ham.style.display = "none";
 };
 
-window.onclick = function(event) {
+ham.onclick = function(event) {
     ham.style.display = "none";
 };
 
@@ -26,10 +26,8 @@ span.onclick = function() {
     bot.style.display = "none";
 };
 
-window.onclick = function(event) {
-    if (event.target == bot) {
-        bot.style.display = "none";
-    }
+bot.onclick = function(event) {
+    bot.style.display = "none";
 };
 
 //VETTEL
@@ -44,10 +42,9 @@ span.onclick = function() {
     vet.style.display = "none";
 };
 
-window.onclick = function(event) {
-    if (event.target == vet) {
-        vet.style.display = "none";
-    }
+vet.onclick = function(event) {
+    vet.style.display = "none";
+
 };
 
 //LECLERC
@@ -62,10 +59,8 @@ span.onclick = function() {
     lec.style.display = "none";
 };
 
-window.onclick = function(event) {
-    if (event.target == lec) {
-        lec.style.display = "none";
-    }
+lec.onclick = function(event) {
+    lec.style.display = "none";
 };
 
 //VERSTAPPEN
@@ -80,10 +75,8 @@ span.onclick = function() {
     ver.style.display = "none";
 };
 
-window.onclick = function(event) {
-    if (event.target == ver) {
-        ver.style.display = "none";
-    }
+ver.onclick = function(event) {
+    ver.style.display = "none";
 };
 
 //ALBON
@@ -98,10 +91,8 @@ span.onclick = function() {
     alb.style.display = "none";
 };
 
-window.onclick = function(event) {
-    if (event.target == alb) {
-        alb.style.display = "none";
-    }
+alb.onclick = function(event) {
+    alb.style.display = "none";
 };
 
 //RICCARDO
@@ -116,10 +107,8 @@ span.onclick = function() {
     ric.style.display = "none";
 };
 
-window.onclick = function(event) {
-    if (event.target == ric) {
-        ric.style.display = "none";
-    }
+ric.onclick = function(event) {
+    ric.style.display = "none";
 };
 
 //HULKINBERG
@@ -134,10 +123,8 @@ span.onclick = function() {
     hulk.style.display = "none";
 };
 
-window.onclick = function(event) {
-    if (event.target == hulk) {
-        ulk.style.display = "none";
-    }
+hulk.onclick = function(event) {
+    hulk.style.display = "none";
 };
 
 //SAINZ
@@ -152,10 +139,8 @@ span.onclick = function() {
     sai.style.display = "none";
 };
 
-window.onclick = function(event) {
-    if (event.target == sai) {
-        sai.style.display = "none";
-    }
+sai.onclick = function(event) {
+    sai.style.display = "none";
 };
 
 //NORRIS
@@ -170,10 +155,8 @@ span.onclick = function() {
     nor.style.display = "none";
 };
 
-window.onclick = function(event) {
-    if (event.target == nor) {
+nor.onclick = function(event) {
         nor.style.display = "none";
-    }
 };
 
 //PEREZ
@@ -188,10 +171,8 @@ span.onclick = function() {
     per.style.display = "none";
 };
 
-window.onclick = function(event) {
-    if (event.target == per) {
-        per.style.display = "none";
-    }
+per.onclick = function(event) {
+    per.style.display = "none";
 };
 
 //STROLL
@@ -206,10 +187,8 @@ span.onclick = function() {
     str.style.display = "none";
 };
 
-window.onclick = function(event) {
-    if (event.target == str) {
-        str.style.display = "none";
-    }
+str.onclick = function(event) {
+    str.style.display = "none";
 };
 
 //KVYAT
@@ -224,10 +203,8 @@ span.onclick = function() {
     kvy.style.display = "none";
 };
 
-window.onclick = function(event) {
-    if (event.target == kvy) {
-        kvy.style.display = "none";
-    }
+kvy.onclick = function(event) {
+    kvy.style.display = "none";
 };
 
 //GASLY
@@ -242,10 +219,8 @@ span.onclick = function() {
     gas.style.display = "none";
 };
 
-window.onclick = function(event) {
-    if (event.target == gas) {
-        gas.style.display = "none";
-    }
+gas.onclick = function(event) {
+    gas.style.display = "none";
 };
 
 //RAIKKONEN
@@ -260,10 +235,8 @@ span.onclick = function() {
     rai.style.display = "none";
 };
 
-window.onclick = function(event) {
-    if (event.target == rai) {
-        rai.style.display = "none";
-    }
+rai.onclick = function(event) {
+    rai.style.display = "none";
 };
 
 //GIOVINACCI
@@ -278,10 +251,8 @@ span.onclick = function() {
     gio.style.display = "none";
 };
 
-window.onclick = function(event) {
-    if (event.target == gio) {
-        gio.style.display = "none";
-    }
+gio.onclick = function(event) {
+    gio.style.display = "none";
 };
 
 //GROJEAN
@@ -296,10 +267,8 @@ span.onclick = function() {
     gro.style.display = "none";
 };
 
-window.onclick = function(event) {
-    if (event.target == gro) {
-        gro.style.display = "none";
-    }
+gro.onclick = function(event) {
+    gro.style.display = "none";
 };
 
 //MAGNUSSEN
@@ -314,10 +283,8 @@ span.onclick = function() {
     mag.style.display = "none";
 };
 
-window.onclick = function(event) {
-    if (event.target == mag) {
-        mag.style.display = "none";
-    }
+mag.onclick = function(event) {
+    mag.style.display = "none";
 };
 
 //RUSSEL
@@ -332,10 +299,8 @@ span.onclick = function() {
     rus.style.display = "none";
 };
 
-window.onclick = function(event) {
-    if (event.target == rus) {
-        rus.style.display = "none";
-    }
+rus.onclick = function(event) {
+    rus.style.display = "none";
 };
 
 //KUBICA
@@ -350,10 +315,8 @@ span.onclick = function() {
     kub.style.display = "none";
 };
 
-window.onclick = function(event) {
-    if (event.target == kub) {
-        kub.style.display = "none";
-    }
+kub.onclick = function(event) {
+    kub.style.display = "none";
 };
 
 
